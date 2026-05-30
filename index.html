@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr Aishwarya Singh | Homeopathic Physician</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sage: #7a9e7e;
+      --sage-light: #a8c5ac;
+      --sage-dark: #4f7254;
+      --cream: #faf6f0;
+      --warm-white: #fffdf9;
+      --charcoal: #2c2c2c;
+      --gold: #c9a84c;
+      --gold-light: #e8d49e;
+      --text-muted-custom: #6b6b6b;
+      --border-light: rgba(122, 158, 126, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; }
+
+    /* ─── NAVBAR ─────────────────────────────── */
+    .navbar-custom {
+      background: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 14px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    /* Ensure navbar inner container matches site content width to avoid right-edge gap */
+    .navbar-custom > .container {
+      max-width: 1100px;
+      padding-left: 16px;
+      padding-right: 16px;
+      margin: 0 auto;
+    }
+
+    /* Prevent any horizontal overflow that can create a right-side white strip */
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+    .navbar-custom.scrolled {
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      padding: 10px 0;
+    }
+    .navbar-brand-custom {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+    .brand-text { line-height: 1.1; }
+    .brand-text .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .brand-text .title {
+      font-size: 0.65rem;
+      color: var(--sage-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .nav-link-custom {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal) !important;
+      letter-spacing: 0.03em;
+      padding: 6px 14px !important;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .nav-link-custom:hover { color: var(--sage-dark) !important; }
+
+    .btn-book-nav {
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      color: white !important;
+      border-radius: 30px;
+      padding: 8px 22px !important;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .btn-book-nav:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(79, 114, 84, 0.35);
+      color: white !important;
+    }
+
+    /* ─── HERO PARALLAX ──────────────────────── */
+    .hero-section {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1725267882596-2d08e560b250?q=80&w=1353&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transform: scale(1.05);
+      transition: transform 0.1s linear;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(250,246,240,0.97) 0%,
+        rgba(250,246,240,0.9) 35%,
+        rgba(250,246,240,0.5) 65%,
+        rgba(250,246,240,0.1) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 90px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(122,158,126,0.12);
+      border: 1px solid rgba(122,158,126,0.3);
+      color: var(--sage-dark);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-tag .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--sage);
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.5; transform:scale(1.3); }
+    }
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--sage-dark);
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--text-muted-custom);
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    .hero-degree {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted-custom);
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 18px 0 32px;
+    }
+    /* Make images responsive by default */
+    img { max-width: 100%; height: auto; display: block; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    .btn-primary-custom {
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(79,114,84,0.4);
+      color: white;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(37,211,102,0.35);
+      color: white;
+    }
+
+    .btn-call {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1.5px solid var(--border-light);
+      padding: 13px 22px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .btn-call:hover {
+      border-color: var(--sage);
+      color: var(--sage-dark);
+      background: rgba(122,158,126,0.07);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--sage-dark);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted-custom);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .hero-image-col {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .hero-img-card {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.18);
+      position: relative;
+    }
+    .hero-img-card img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: top;
+    }
+    .hero-img-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .badge-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px;
+    }
+    .badge-text .top { font-weight: 600; font-size: 0.85rem; }
+    .badge-text .bot { font-size: 0.72rem; color: var(--text-muted-custom); }
+
+    /* ─── SECTION STYLES ─────────────────────── */
+    .section-tag {
+      display: inline-block;
+      background: rgba(122,158,126,0.1);
+      color: var(--sage-dark);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .section-title em { font-style: italic; color: var(--sage-dark); }
+    .section-desc {
+      color: var(--text-muted-custom);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    /* ─── ABOUT SECTION ──────────────────────── */
+    .about-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .about-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .about-float-card {
+      position: absolute;
+      top: 24px;
+      right: -12px;
+      background: white;
+      border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      text-align: center;
+    }
+    .about-float-card .big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--sage-dark);
+      line-height: 1;
+    }
+    .about-float-card .small {
+      font-size: 0.66rem;
+      color: var(--text-muted-custom);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .about-green-block {
+      position: absolute;
+      bottom: -12px;
+      left: -12px;
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 22px;
+    }
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .cred-card {
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s;
+    }
+    .cred-card:hover {
+      border-color: var(--sage);
+      box-shadow: 0 4px 20px rgba(122,158,126,0.15);
+      transform: translateY(-2px);
+    }
+    .cred-icon {
+      width: 38px; height: 38px;
+      background: rgba(122,158,126,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage-dark);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .cred-title { font-weight: 600; font-size: 0.82rem; margin-bottom: 2px; }
+    .cred-sub { font-size: 0.73rem; color: var(--text-muted-custom); }
+
+    /* ─── CONDITIONS SLIDER ──────────────────── */
+    .conditions-section {
+      padding: 100px 0;
+      background: var(--warm-white);
+    }
+    .conditions-carousel .carousel-inner { border-radius: 20px; }
+
+    .condition-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 22px;
+      text-align: center;
+      border: 1px solid var(--border-light);
+      transition: all 0.35s;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .condition-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sage), var(--sage-dark));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .condition-card:hover::before { transform: scaleX(1); }
+    .condition-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 50px rgba(122,158,126,0.18);
+      border-color: var(--sage-light);
+    }
+    .condition-icon {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, rgba(122,158,126,0.1), rgba(122,158,126,0.2));
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage-dark);
+      font-size: 24px;
+      margin: 0 auto 16px;
+    }
+    .condition-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+    .condition-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted-custom);
+      line-height: 1.6;
+    }
+
+    /* ─── WHY HOMEOPATHY SECTION ─────────────── */
+    .why-section {
+      padding: 100px 0;
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+    .why-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1648455321715-e8ed86188c0e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG9tZW9wYXRoeXxlbnwwfHwwfHx8MA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.12;
+    }
+    .why-section .section-title { color: white; }
+    .why-section .section-tag { background: rgba(255,255,255,0.1); color: var(--sage-light); }
+    .why-section .section-desc { color: rgba(255,255,255,0.6); max-width: 100%; }
+
+    .why-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 30px 24px;
+      color: white;
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .why-card:hover {
+      background: rgba(122,158,126,0.15);
+      border-color: rgba(122,158,126,0.4);
+      transform: translateY(-4px);
+    }
+    .why-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      color: white;
+      margin-bottom: 18px;
+    }
+    .why-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .why-desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* ─── TESTIMONIALS ───────────────────────── */
+    .testimonials-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+    .testimonial-quote {
+      font-size: 4rem;
+      color: var(--sage-light);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .testimonial-stars { color: var(--gold); margin-bottom: 12px; font-size: 0.85rem; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .author-name { font-weight: 600; font-size: 0.88rem; }
+    .author-loc { font-size: 0.75rem; color: var(--text-muted-custom); }
+
+    /* ─── GALLERY SECTION ────────────────────── */
+    .gallery-section {
+      padding: 80px 0;
+      background: var(--warm-white);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:first-child img { min-height: 416px; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: white; font-size: 0.8rem; font-weight: 500; }
+
+    /* ─── CTA SECTION ────────────────────────── */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1800&q=50');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.08;
+    }
+    .cta-content { position: relative; z-index: 2; text-align: center; }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-title em { font-style: italic; }
+    .cta-desc { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 36px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-cta-white {
+      background: white;
+      color: var(--sage-dark);
+      border: none;
+      padding: 15px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .btn-cta-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+      color: var(--sage-dark);
+    }
+    .btn-cta-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.6);
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-cta-outline:hover {
+      border-color: white;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.75);
+      padding: 60px 0 30px;
+    }
+    .footer-brand .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: white;
+      font-weight: 400;
+    }
+    .footer-brand .degree {
+      font-size: 0.78rem;
+      color: var(--sage-light);
+      letter-spacing: 0.08em;
+    }
+    .footer-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.5);
+      margin-top: 14px;
+    }
+    .footer-heading {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    .footer-links { list-style: none; padding: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.87rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sage-light); }
+    .footer-contact-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-contact-item i { color: var(--sage-light); margin-top: 3px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 40px;
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 14px;
+    }
+    .social-link:hover {
+      background: var(--sage);
+      color: white;
+    }
+
+    /* Footer CTA buttons: make phone/whatsapp match appointment width */
+    .footer-cta { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .footer-cta .btn-primary-custom,
+    .footer-cta .btn-phone-footer,
+    .footer-cta .btn-whatsapp-footer,
+    .footer-cta .btn-book-footer { min-width: 260px; width: 260px; max-width: 100%; justify-content: center; }
+
+    /* Theme colors for footer CTAs */
+    .btn-phone-footer { background: linear-gradient(135deg, var(--sage), var(--sage-dark)); color: white; border: none; border-radius: 50px; text-decoration: none; }
+    .btn-whatsapp-footer { background: #25D366; border: none; color: white; border-radius: 50px; text-decoration: none; }
+    /* Make Book Appointment use the same sage gradient as navbar */
+    .btn-book-footer { background: linear-gradient(135deg, var(--sage), var(--sage-dark)); color: white; border: none; border-radius: 50px; text-decoration: none; }
+    .footer-cta .btn-phone-footer:hover,
+    .footer-cta .btn-book-footer:hover,
+    .footer-cta .btn-whatsapp-footer:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+    .footer-cta a { text-decoration: none !important; }
+
+    /* ─── FLOATING WA BUTTON ─────────────────── */
+    .float-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 26px;
+      box-shadow: 0 6px 25px rgba(37,211,102,0.45);
+      z-index: 9999;
+      text-decoration: none;
+      animation: float-bounce 3s ease-in-out infinite;
+    }
+    @keyframes float-bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* ─── SCROLL REVEAL ──────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Directional reveal variants */
+    .reveal[data-reveal="left"] { transform: translateX(-30px); }
+    .reveal[data-reveal="right"] { transform: translateX(30px); }
+    .reveal[data-reveal="up"] { transform: translateY(20px); }
+    .reveal[data-reveal="zoom"] { transform: scale(0.96); }
+    /* When visible, reset transform for any variant */
+    .reveal[data-reveal].visible { transform: none; }
+
+    /* ─── CAROUSEL CUSTOM ────────────────────── */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1);
+    }
+    .custom-prev-btn,
+    .custom-next-btn {
+      width: 46px; height: 46px;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--sage-dark);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 16px;
+    }
+    .custom-prev-btn:hover,
+    .custom-next-btn:hover {
+      background: var(--sage);
+      color: white;
+      border-color: var(--sage);
+    }
+    .carousel-nav { display: flex; gap: 10px; justify-content: center; margin-top: 30px; }
+    .carousel-indicators-custom {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .ci-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+    .ci-dot.active {
+      background: var(--sage-dark);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.8rem; }
+      /* Navbar container should use full width with small padding on mobile */
+      .navbar-custom > .container {
+        max-width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+      .btn-book-nav { padding: 8px 14px !important; }
+      /* Allow hero description to use available width on small screens */
+      .hero-desc { max-width: 92%; margin-left: auto; margin-right: auto; }
+      /* Allow hero-stats to wrap on narrow screens */
+      .hero-stats { flex-wrap: wrap; gap: 18px; justify-content: center; }
+      .hero-stats { gap: 20px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: 1 / 3; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      .about-float-card { right: 10px; }
+      .hero-bg { background-attachment: scroll; }
+      .why-bg-pattern { background-attachment: scroll; }
+      .cta-bg-img { background-attachment: scroll; }
+
+      /* Mobile: center align most content and elements */
+      .hero-content,
+      .about-section,
+      .why-section,
+      .conditions-section,
+      .gallery-section,
+      .testimonials-section,
+      .cta-section,
+      footer {
+        text-align: center;
+      }
+
+      /* Keep footer column links left-aligned for readability */
+      .footer-links { text-align: left; }
+      /* Add left indent so links align under their heading on mobile */
+      .footer-heading { text-align: left; padding-left: 18px; }
+      .footer-links { padding-left: 18px; }
+
+      .hero-stats,
+      .hero-actions,
+      .testimonial-author {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: nowrap;
+      }
+
+      /* Stack hero action buttons and constrain width on mobile to avoid overlap */
+      .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+      }
+      .hero-actions .btn-primary-custom,
+      .hero-actions .btn-whatsapp,
+      .hero-actions .btn-call {
+        width: 92%;
+        max-width: 360px;
+        justify-content: center;
+        padding: 12px 18px;
+      }
+
+      .credentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: stretch;
+      }
+
+      /* Center credential card content on mobile */
+      .cred-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .cred-icon {
+        margin: 0 0 10px 0;
+      }
+
+      /* Center why-card icon and content on mobile */
+      .why-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .why-icon {
+        margin: 0 0 12px 0;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+      }
+
+      .hero-image-col,
+      .about-img-wrap,
+      .hero-img-card {
+        margin: 0 auto;
+        display: block;
+      }
+
+      /* Allow badge to sit outside image on small screens so it doesn't cover the face */
+      .about-img-wrap { overflow: visible; }
+
+      .condition-card {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .author-avatar {
+        margin: 0;
+        display: inline-block;
+      }
+
+      /* Make about-float-card a bit smaller and move it higher on mobile */
+      .about-float-card {
+        top: -22px !important;
+        right: 8px !important;
+        left: auto !important;
+        padding: 6px 8px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        transform: translateY(0);
+        max-width: 140px;
+        z-index: 50;
+      }
+      .about-float-card .big {
+        font-size: 0.95rem;
+        line-height: 1;
+      }
+      .about-float-card .small {
+        font-size: 0.5rem;
+      }
+      /* Center footer icons and social links on mobile */
+      .social-links { justify-content: center; }
+      .footer-contact-item { justify-content: center; }
+      .footer-contact-item i { width: 28px; display: inline-flex; align-items: center; justify-content: center; }
+      .footer-bottom { flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar-custom">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <a href="#" class="navbar-brand-custom">
+        <div class="brand-icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="brand-text">
+          <div class="name">Dr. Aishwarya Singh</div>
+          <div class="title">Homeopathic Physician</div>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#about" class="nav-link-custom">About</a>
+        <a href="#conditions" class="nav-link-custom">Conditions</a>
+        <a href="#why" class="nav-link-custom">Why Homeopathy</a>
+        <a href="#testimonials" class="nav-link-custom">Testimonials</a>
+        <a href="#contact" class="nav-link-custom">Contact</a>
+        <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-book-nav ms-2">
+          <i class="fa-solid fa-calendar-check me-1"></i> Book Appointment
+        </a>
+      </div>
+      <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-book-nav d-lg-none">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero-section" id="home">
+  <div class="hero-bg" id="parallaxBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-lg-6 hero-content reveal" data-reveal="left">
+        <div class="hero-tag">
+          <span class="dot"></span>
+          Accepting New Patients
+        </div>
+        <h1 class="hero-title">Heal <em>Naturally,</em><br>Live Fully.</h1>
+        <p class="hero-subtitle"><span class="hero-degree">BHMS · Bachelor of Homeopathic Medicine & Surgery</span></p>
+        <p class="hero-desc">Gentle, personalised homeopathic care that treats the root cause — not just the symptoms. Trusted by families across the region for safe and effective healing.</p>
+        <div class="hero-actions">
+          <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-primary-custom">
+            <i class="fa-solid fa-calendar-check"></i> Book Appointment
+          </a>
+          <a href="https://wa.me/918957142508" target="_blank" class="btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="tel:+918957142508" class="btn-call">
+            <i class="fa-solid fa-phone"></i> Call Now
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">1K+</div>
+            <div class="stat-label">Patients Treated</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Conditions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Natural</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-image-col d-none d-lg-flex reveal" data-reveal="right">
+        <div class="hero-img-card">
+          <img src="Aishwarya.jpeg" alt="Doctor" />
+          <div class="hero-img-badge">
+            <div class="badge-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="badge-text">
+              <div class="top">Verified Doctor</div>
+              <div class="bot">BHMS · Registered Practitioner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal" data-reveal="left">
+        <div class="about-img-wrap">
+          <img src="Aishwarya.jpeg" alt="Doctor at clinic" />
+          <div class="about-float-card">
+            <div class="big">BHMS</div>
+            <div class="small">Qualified Homeopath</div>
+          </div>
+          <div class="about-green-block">
+            <i class="fa-solid fa-stethoscope"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal" data-reveal="right">
+        <div class="section-tag"><i class="fa-solid fa-user-doctor me-1"></i> About The Doctor</div>
+        <h2 class="section-title">Compassionate Care,<br><em>Rooted in Science</em></h2>
+        <p class="section-desc">A recently graduated BHMS physician with a passion for holistic healing. Trained in the classical principles of homeopathy, I believe every patient deserves individualised attention and a treatment plan tailored to their unique constitution.</p>
+        <p class="section-desc mt-3">With a focus on chronic and lifestyle diseases, my approach combines thorough case-taking with evidence-based homeopathic prescriptions for lasting recovery.</p>
+        <div class="credentials-grid mt-4">
+          <div class="cred-card">
+            <div class="cred-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cred-title">BHMS Degree</div>
+            <div class="cred-sub">Certified in Integrative Medicine</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cred-title">Registered Practitioner</div>
+            <div class="cred-sub">State Homeopathic Council</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="cred-title">Holistic Approach</div>
+            <div class="cred-sub">Mind, Body & Constitution</div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-icon"><i class="fa-solid fa-clock"></i></div>
+            <div class="cred-title">Flexible Timings</div>
+            <div class="cred-sub">Mon – Sat, 9 AM – 7 PM</div>
+          </div>
+        </div>
+        <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-primary-custom mt-4 d-inline-flex">
+          <i class="fa-solid fa-calendar-plus"></i> Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONDITIONS TREATED ═══════════════ -->
+<section class="conditions-section" id="conditions">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag"><i class="fa-solid fa-kit-medical me-1"></i> Specialities</div>
+      <h2 class="section-title">Conditions <em>We Treat</em></h2>
+      <p class="section-desc mx-auto text-center">From chronic lifestyle diseases to hormonal imbalances — safe and natural homeopathic remedies for every condition.</p>
+    </div>
+
+    <div class="reveal" data-reveal="up">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-person-dots-from-line"></i></div>
+            <div class="condition-name">Prostate Disorders</div>
+            <div class="condition-desc">Effective homeopathic management of benign prostatic hyperplasia and related urinary conditions.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-vials"></i></div>
+            <div class="condition-name">Hydronephrosis & Renal Calculi</div>
+            <div class="condition-desc">Natural dissolution of kidney stones and relief from hydronephrosis through constitutional remedies.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-hand-dots"></i></div>
+            <div class="condition-name">Skin Diseases & Acne</div>
+            <div class="condition-desc">Root-cause treatment of eczema, psoriasis, acne vulgaris and other stubborn skin conditions.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+            <div class="condition-name">Cholelithiasis</div>
+            <div class="condition-desc">Non-surgical, gentle dissolving of gallstones with targeted homeopathic remedies.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="condition-name">Hypertension (BP)</div>
+            <div class="condition-desc">Safe, side-effect-free management of high blood pressure through constitutional treatment.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-notes-medical"></i></div>
+            <div class="condition-name">Liver Disease</div>
+            <div class="condition-desc">Comprehensive liver support — fatty liver, hepatitis, cirrhosis — with natural homeopathic care.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-venus"></i></div>
+            <div class="condition-name">PCOD / PCOS</div>
+            <div class="condition-desc">Hormonal balancing and regularisation of menstrual cycles through safe homeopathic treatment.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-person-breastfeeding"></i></div>
+            <div class="condition-name">Prolapse of Uterus</div>
+            <div class="condition-desc">Conservative, non-invasive homeopathic support for uterine prolapse and pelvic floor issues.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-circle-half-stroke"></i></div>
+            <div class="condition-name">Uterine Fibroids</div>
+            <div class="condition-desc">Natural reduction of fibroid size and associated symptoms without surgery.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-ribbon"></i></div>
+            <div class="condition-name">Fibroadenoma</div>
+            <div class="condition-desc">Gentle reduction of breast lumps and fibroadenoma through individualised homeopathic prescriptions.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-joint"></i></div>
+            <div class="condition-name">Arthritis</div>
+            <div class="condition-desc">Pain relief and joint function restoration for osteoarthritis, rheumatoid arthritis and gout.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="condition-name">Neuralgia</div>
+            <div class="condition-desc">Effective nerve pain management — trigeminal, sciatica, post-herpetic neuralgia and more.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-bone"></i></div>
+            <div class="condition-name">Spondylosis</div>
+            <div class="condition-desc">Cervical and lumbar spondylosis management with anti-inflammatory homeopathic remedies.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="condition-name">Ascites</div>
+            <div class="condition-desc">Natural diuretic support and fluid management in ascites through constitutional treatment.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-weight-scale"></i></div>
+            <div class="condition-name">Obesity</div>
+            <div class="condition-desc">Metabolic balancing and weight management through safe, non-stimulant homeopathic remedies.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-lungs"></i></div>
+            <div class="condition-name">Lung Consolidation</div>
+            <div class="condition-desc">Supportive homeopathic care for pneumonia, lung consolidation and respiratory recovery.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card">
+            <div class="condition-icon"><i class="fa-solid fa-virus"></i></div>
+            <div class="condition-name">Warts</div>
+            <div class="condition-desc">Safe, painless removal of common, plantar and genital warts through internal homeopathic medicine.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="condition-card" style="border: 2px dashed var(--border-light); background: rgba(122,158,126,0.03); display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <div class="condition-icon" style="background:rgba(201,168,76,0.12);color:var(--gold)"><i class="fa-solid fa-plus"></i></div>
+            <div class="condition-name">More Conditions</div>
+            <div class="condition-desc">Don't see your condition? Book a consultation — homeopathy can help with a wide range of ailments.</div>
+            <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-primary-custom mt-3" style="font-size:0.8rem;padding:10px 20px">
+              Consult Now <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ WHY HOMEOPATHY ═══════════════ -->
+<section class="why-section" id="why">
+  <div class="why-bg-pattern"></div>
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-4 reveal" data-reveal="left">
+        <div class="section-tag"><i class="fa-solid fa-leaf me-1"></i> Why Choose Us</div>
+        <h2 class="section-title" style="color:white">Why <em>Homeopathy</em> Works</h2>
+        <p class="section-desc">Over 200 years of clinical wisdom, now backed by modern understanding of the body's self-healing mechanisms.</p>
+        <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-primary-custom mt-4 d-inline-flex">
+          Start Your Healing Journey <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="col-lg-8 reveal" data-reveal="right">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <div class="why-title">Zero Side Effects</div>
+              <div class="why-desc">Ultra-dilute remedies that are completely safe for infants, pregnant women, elderly and everyone in between.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-person-circle-check"></i></div>
+              <div class="why-title">Personalised Treatment</div>
+              <div class="why-desc">Every prescription is tailored to you — your symptoms, temperament, lifestyle and emotional state.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div class="why-title">Root Cause Healing</div>
+              <div class="why-desc">We don't suppress symptoms. We strengthen your vital force to heal from within, permanently.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="why-card">
+              <div class="why-icon"><i class="fa-solid fa-wallet"></i></div>
+              <div class="why-title">Affordable Care</div>
+              <div class="why-desc">High-quality homeopathic treatment that is accessible and budget-friendly for every family.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<!-- <section class="gallery-section">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag"><i class="fa-solid fa-images me-1"></i> Our Clinic</div>
+      <h2 class="section-title">A Healing <em>Space</em></h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1725267882596-2d08e560b250?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9tZW9wYXRoaWMlMjBtZWRpY2luZXxlbnwwfHwwfHx8MA%3D%3D" alt="Clinic" />
+        <div class="gallery-overlay"><span><i class="fa-solid fa-expand me-1"></i>Consultation Room</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1564316911608-6b51e3a3cf3d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG9tZW9wYXRoaWMlMjBtZWRpY2luZXxlbnwwfHwwfHx8MA%3D%3D" alt="Medicines" />
+        <div class="gallery-overlay"><span><i class="fa-solid fa-expand me-1"></i>Homeopathic Medicines</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1671108503276-1d3d5ab23a3a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG9tZW9wYXRoaWMlMjBtZWRpY2luZXxlbnwwfHwwfHx8MA%3D%3D" alt="Doctor" />
+        <div class="gallery-overlay"><span><i class="fa-solid fa-expand me-1"></i>Patient Consultation</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1599752598704-8cdce881e23c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvbWVvcGF0aGljJTIwbWVkaWNpbmV8ZW58MHx8MHx8fDA%3D" alt="Herbs" />
+        <div class="gallery-overlay"><span><i class="fa-solid fa-expand me-1"></i>Natural Remedies</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1676803704427-496b1de33baa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG9tZW9wYXRoeXxlbnwwfHwwfHx8MA%3D%3D" alt="Clinic exterior" />
+        <div class="gallery-overlay"><span><i class="fa-solid fa-expand me-1"></i>Waiting Area</span></div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <div class="section-tag"><i class="fa-solid fa-star me-1"></i> Testimonials</div>
+      <h2 class="section-title">What Our <em>Patients Say</em></h2>
+    </div>
+    <div id="testimonialCarousel" class="carousel slide reveal" data-reveal="up" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <!-- <div class="testimonial-quote">"</div> -->
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="testimonial-text">My kidney stones dissolved in just 3 months without any surgery. I am so grateful for the gentle and effective treatment I received.</div>
+                <div class="testimonial-author">
+                  <img src="https://plus.unsplash.com/premium_photo-1691030254390-aa56b22e6a45?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kYWlhYW4lMjBtZW58ZW58MHx8MHx8fDA%3D" alt="Patient" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/100?u=default1'" />
+                  <div>
+                    <div class="author-name">Ramesh Kumar</div>
+                    <div class="author-loc"><i class="fa-solid fa-location-dot me-1"></i>Gorakhpur, UP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <!-- <div class="testimonial-quote">"</div> -->
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="testimonial-text">My PCOD symptoms have improved tremendously. My cycles are now regular and the hormonal acne has completely cleared up. Life-changing!</div>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1588608368947-c243aea32bff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGluZGFpYWFuJTIwZ2lybHxlbnwwfHwwfHx8MA%3D%3D" alt="Patient" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/100?u=default2'" />
+                  <div>
+                    <div class="author-name">Priya Sharma</div>
+                    <div class="author-loc"><i class="fa-solid fa-location-dot me-1"></i>Lucknow, UP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <!-- <div class="testimonial-quote">"</div> -->
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                <div class="testimonial-text">After years of BP medications with side effects, homeopathy gave me a natural, sustainable solution. My readings are now in normal range.</div>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1701365676249-9d7ab5022dec?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5kYWlhYW4lMjBtZW58ZW58MHx8MHx8fDA%3D" alt="Patient" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/100?u=default3'" />
+                  <div>
+                    <div class="author-name">Suresh Verma</div>
+                    <div class="author-loc"><i class="fa-solid fa-location-dot me-1"></i>Varanasi, UP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <!-- <div class="testimonial-quote">"</div> -->
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="testimonial-text">My warts of 5 years are completely gone! No burning, no cutting — just small sweet pills. I still can't believe it worked so well.</div>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1618245472177-2a74ad3b994a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW5kYWlhYW4lMjBnaXJsfGVufDB8fDB8fHww" alt="Patient" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/100?u=default4'" />
+                  <div>
+                    <div class="author-name">Anjali Mishra</div>
+                    <div class="author-loc"><i class="fa-solid fa-location-dot me-1"></i>Gorakhpur, UP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <!-- <div class="testimonial-quote">"</div> -->
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="testimonial-text">My arthritis pain has reduced by 80% within 6 weeks of starting treatment. I can walk and climb stairs again without difficulty!</div>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1632414237690-7713a79fe9d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW5kYWlhYW4lMjBvbGQlMjBtZW58ZW58MHx8MHx8fDA%3D" alt="Patient" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/100?u=default5'" />
+                  <div>
+                    <div class="author-name">Mohan Gupta</div>
+                    <div class="author-loc"><i class="fa-solid fa-location-dot me-1"></i>Kanpur, UP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="testimonial-card">
+                <!-- <div class="testimonial-quote">"</div> -->
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <div class="testimonial-text">The doctor is very patient and thorough in case-taking. My fibroid has reduced significantly and I avoided an operation. Very happy!</div>
+                <div class="testimonial-author">
+                  <img src="https://images.unsplash.com/photo-1736922970270-956d0508a885?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGluZGFpYWFuJTIwd29tZW58ZW58MHx8MHx8fDA%3D" alt="Patient" class="author-avatar" loading="lazy" onerror="this.onerror=null;this.src='https://i.pravatar.cc/100?u=default6'" />
+                  <div>
+                    <div class="author-name">Meena Tiwari</div>
+                    <div class="author-loc"><i class="fa-solid fa-location-dot me-1"></i>Allahabad, UP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <button class="custom-prev-btn" onclick="bootstrap.Carousel.getInstance(document.getElementById('testimonialCarousel')).prev()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="custom-next-btn" onclick="bootstrap.Carousel.getInstance(document.getElementById('testimonialCarousel')).next()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg-img"></div>
+  <div class="container">
+    <div class="cta-content reveal" data-reveal="zoom">
+      <div class="section-tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9)">
+        <i class="fa-solid fa-calendar-heart me-1"></i> Book Appointment
+      </div>
+      <h2 class="cta-title">Ready to Begin Your<br><em>Healing Journey?</em></h2>
+      <p class="cta-desc">Take the first step towards natural, lasting health. Appointments available 6 days a week.</p>
+      <div class="cta-buttons">
+        <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-cta-white">
+          <i class="fa-solid fa-calendar-check"></i> Book Appointment Online
+        </a>
+        <a href="https://wa.me/918957142508" target="_blank" class="btn-cta-outline" style="background:rgba(37,211,102,0.2);border-color:#25D366;">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a href="tel:+918957142508" class="btn-cta-outline">
+          <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+      </div>
+      <!-- <p style="color:rgba(255,255,255,0.5);font-size:0.82rem;margin-top:24px;">
+        <i class="fa-solid fa-clock me-1"></i> Mon – Sat  -->
+        <!-- &nbsp;|&nbsp; -->
+        <!-- <i class="fa-solid fa-map-pin me-1"></i> Gorakhpur, Uttar Pradesh &nbsp;|&nbsp; -->
+        <!-- <i class="fa-solid fa-phone me-1"></i> +91 89571 42508 -->
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <div class="name">Dr Aishwarya Singh</div>
+          <div class="degree">BHMS · Homeopathic Physician</div>
+        </div>
+        <p class="footer-desc">Providing gentle, safe and effective homeopathic care to patients across Gwalior and beyond. Your health is our mission.</p>
+        <div class="social-links mt-4">
+          <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/918957142508" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#conditions">Conditions</a></li>
+          <li><a href="#why">Why Homeopathy</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <div class="footer-heading">Conditions</div>
+        <ul class="footer-links">
+          <li><a href="#">PCOD / Hormonal Issues</a></li>
+          <li><a href="#">Kidney Stones</a></li>
+          <li><a href="#">Skin Diseases</a></li>
+          <li><a href="#">Arthritis</a></li>
+          <li><a href="#">Liver Disorders</a></li>
+          <li><a href="#">Obesity</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Contact</div>
+        <!-- <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot mt-1"></i>
+          <span>Clinic Address, Gwalior, Madhya Pradesh — 474001</span>
+        </div> -->
+        <div class="footer-cta">
+          <a href="tel:+918957142508" class="btn-phone-footer d-inline-flex align-items-center" style="font-size:0.9rem;padding:10px 18px">
+            <i class="fa-solid fa-phone me-2"></i> +91 89571 42508
+          </a>
+          <a href="https://wa.me/918957142508" class="btn-whatsapp-footer d-inline-flex align-items-center" style="font-size:0.9rem;padding:10px 18px">
+            <i class="fa-brands fa-whatsapp me-2"></i> WhatsApp Us
+          </a>
+          <a href="https://forms.gle/bfSbpz3NjTCa4mg19" target="_blank" class="btn-book-footer d-inline-flex" style="font-size:0.82rem;padding:11px 22px">
+            <i class="fa-solid fa-calendar-check"></i> &nbsp;&nbsp;Book Appointment
+          </a>
+        </div>
+        <div class="footer-contact-item mt-2">
+          <i class="fa-solid fa-clock"></i>
+          <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dr. Aishwarya Singh, BHMS. All rights reserved.</span>
+      <span>Designed with <i class="fa-solid fa-heart" style="color:var(--sage-light)"></i> for natural healing</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/918957142508" target="_blank" class="float-wa" title="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // ── Navbar scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar-custom');
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Parallax hero bg
+  const parallaxBg = document.getElementById('parallaxBg');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    parallaxBg.style.transform = `scale(1.05) translateY(${scrollY * 0.3}px)`;
+  });
+
+  // ── Scroll reveal (supports data-reveal and data-reveal-delay)
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const baseDelay = parseInt(el.dataset.revealDelay) || 0;
+        const delay = baseDelay + idx * 60;
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>
